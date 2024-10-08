@@ -10,15 +10,15 @@
 </head>
 <body>
   <div class="container mt-5">
-    <div class="options">
-        <button class="option" id="option1">Parently</button>
-        <button class="option" id="option2">well</button>
-        <button class="option" id="option3">hard</button>
-        <button class="option" id="option4">cliently</button>
-        <button class="option" id="option5">curiously</button>
+    <div class="options mb-4">
+        <button class="option " id="option1">Parent</button>
+        <button class="option " id="option2">well</button>
+        <button class="option " id="option3">hard</button>
+        <button class="option " id="option4">position</button>
+        <button class="option " id="option5">curiously</button>
     </div>
     <div class="fill-blanks">
-        <div>Tania looked around <input type="text" class="blank" placeholder="type here..." /> not recoganizing the room she was in.</div>
+        <div>Tania looked around <input type="text" class="blank" placeholder="type here..." /> not recognizing the room she was in.</div>
     </div>
     <div class="fill-blanks">
         <div>Azaam folded the sheets <input type="text" class="blank" placeholder="type here..." /> and placed them on the bed.</div>
@@ -41,38 +41,29 @@
     const blanks = document.querySelectorAll('.blank');
     const options = document.querySelectorAll('.option');
     let activeOption = null;
-    
+
     options.forEach(option => {
         option.addEventListener('click', () => {
             option.style.backgroundColor = "blue";
-            activeOption = option;
+            activeOption = option; 
         });
     });
 
     blanks.forEach(blank => {
         blank.addEventListener('click', () => {
-            if (activeOption) {
+            if (blank.value !== "") {
+                const optionToReturn = Array.from(options).find(option => option.textContent === blank.value);
+                if (optionToReturn) {
+                    optionToReturn.style.display = "inline-block"; 
+                }
+                blank.value = ""; 
+            } else if (activeOption) {
                 blank.value = activeOption.textContent; 
                 activeOption.style.display = 'none'; 
-                activeOption = null; 
+                activeOption.style.backgroundColor = ""; 
+                activeOption = null;
             }
         });
-    });
-
-    function removeOptionOnDoubleClick(event) {
-        const content = event.target.value;
-        if (content.trim() !== "") {
-            const option = Array.from(options).find(opt => opt.textContent === content);
-            if (option) {
-            option.style.backgroundColor = "rgb(227, 227, 227)";
-                option.style.display = "block"; 
-            }
-            event.target.value = ""; 
-        }
-    }
-
-    blanks.forEach(blank => {
-        blank.addEventListener('dblclick', removeOptionOnDoubleClick);
     });
 </script>
     
