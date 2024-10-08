@@ -1,0 +1,36 @@
+
+
+.options {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+  }
+.option{
+    margin-inline: 15px;
+    color: rgb(55, 167, 204);
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgb(227, 227, 227);
+    border: 2px solid rgb(163, 163, 163);
+    font-weight: 500;
+    font-size: 500;
+}
+.blank{
+    padding-top: 5px;
+    text-align: center;
+    border: 2px dotted rgb(125, 125, 125);
+    background-color: white;
+    display: inline-block;
+    width: 150px;
+    height: 40px;
+}
+.fill-blanks{
+    font-weight: 500;
+    font-size: 500;
+    margin-top: 35px;
+}
+.checkbox{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
